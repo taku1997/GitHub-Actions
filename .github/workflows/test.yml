@@ -12,11 +12,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: composer.jsonの構文確認
+    - name: Validate composer.json and composer.lock
       run: composer validate
 
-    - name: 依存関係のInstall
+    - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    - name: PHPUNITテスト結果
+    - name: Run test suite
       run: composer run-script test
